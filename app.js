@@ -12,7 +12,9 @@ app.controller('questionController', questionController);
 questionController.$inject = ['$scope'];
 function questionController($scope) {
     $scope.check = check;
+    $scope.answer = answer;
 
+    $scope.answers = [];
     $scope.question = {
         id: 1,
         pregunta: '¿Que tipo de Framework es AngularJS?',
@@ -47,5 +49,11 @@ function questionController($scope) {
         this.respuesta.active = true;
     };
 
-
+    function answer(){
+        angular.forEach($scope.question.respuestas, function(value, key) {
+            if(value.active){
+                $scope.answers.push({id: $scope.question.id, responseId: value.id});
+            }   
+        });
+    }
 };

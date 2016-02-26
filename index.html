@@ -21,7 +21,12 @@
             </li>
          </ul>
       </div>
-      <button>Responder</button>
+      <button ng-click="answer()">Responder</button>
+      
+      <div ng-show="answers.length !== 0">
+          <h2>Respuestas</h2>
+          <div ng-repeat="ans in answers">{{ans.id}}{{ans.responseId}}</div>
+      </div>
    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.20/angular.min.js"></script>
