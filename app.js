@@ -6,3 +6,36 @@ mainController.$inyect = ['$scope'];
 function mainController($scope) {
     $scope.company = "Sistel";
 }
+
+app.controller('questionController', questionController);
+
+questionController.$inject = ['$scope'];
+function questionController($scope) {
+    //objeto question
+    $scope.question = {
+        id: 1,
+        pregunta: '¿Que tipo de Framework es AngularJS?',
+        respuestas: [
+            {
+                id: 1,
+                text: 'MVC',
+                active: 'false'
+            },
+            {
+                id: 2,
+                text: 'MVVM',
+                active: 'false'
+            },
+            {
+                id: 3,
+                text: 'MVR',
+                active: 'false'
+            },
+            {
+                id: 4,
+                text: 'MVW',
+                active: 'false'
+            }
+        ]
+    };
+};
