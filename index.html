@@ -16,8 +16,8 @@
       <div class="pregunta">
          <h3>{{question.pregunta}}</h3>
          <ul>
-            <li ng-repeat="respuesta in question.respuestas">
-               {{respuesta.text}}
+            <li ng-repeat="respuesta in question.respuestas" ng-click="check()">
+               <input type="checkbox" checked ng-if="respuesta.active"> {{respuesta.text}} 
             </li>
          </ul>
       </div>

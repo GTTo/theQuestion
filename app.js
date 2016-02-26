@@ -11,7 +11,8 @@ app.controller('questionController', questionController);
 
 questionController.$inject = ['$scope'];
 function questionController($scope) {
-    //objeto question
+    $scope.check = check;
+
     $scope.question = {
         id: 1,
         pregunta: '¿Que tipo de Framework es AngularJS?',
@@ -19,23 +20,32 @@ function questionController($scope) {
             {
                 id: 1,
                 text: 'MVC',
-                active: 'false'
+                active: false
             },
             {
                 id: 2,
                 text: 'MVVM',
-                active: 'false'
+                active: false
             },
             {
                 id: 3,
                 text: 'MVR',
-                active: 'false'
+                active: false
             },
             {
                 id: 4,
                 text: 'MVW',
-                active: 'false'
+                active: false
             }
         ]
     };
+
+    function check() {
+        angular.forEach($scope.question.respuestas, function (value, key) {
+            value.active = false;
+        });
+        this.respuesta.active = true;
+    };
+
+
 };
