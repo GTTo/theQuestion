@@ -10,24 +10,24 @@
     <div ng-controller="mainController">
         <h1>Hola AngulaJS desde @{{company}}</h1>
     </div>
-    
+
     <div ng-controller="questionController">
-      <h1>Pregunta {{question.id}}</h1>
-      <div class="pregunta">
-         <h3>{{question.pregunta}}</h3>
-         <ul>
-            <li ng-repeat="respuesta in question.respuestas" ng-click="check()">
-               <input type="checkbox" checked ng-if="respuesta.active"> {{respuesta.text}} 
-            </li>
-         </ul>
-      </div>
-      <button ng-click="answer()">Responder</button>
-      
-      <div ng-show="answers.length !== 0">
-          <h2>Respuestas</h2>
-          <div ng-repeat="ans in answers">{{ans.id}}{{ans.responseId}}</div>
-      </div>
-   </div>
+        <div class="pregunta" ng-repeat="q in questions">
+            <h1>Pregunta {{q.id}}</h1>
+            <h3>{{q.pregunta}}</h3>
+            <ul>
+                <li ng-repeat="respuesta in q.respuestas" ng-click="check(q)">
+                    <input type="checkbox" checked ng-if="respuesta.active"> {{respuesta.text}}
+                </li>
+            </ul>
+            <button ng-click="answer(q)">Responder</button>
+        </div>
+
+        <div ng-show="answers.length !== 0">
+            <h2>Respuestas</h2>
+            <div ng-repeat="ans in answers">Q:{{ans.id}} A:{{ans.responseId}}</div>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.20/angular.min.js"></script>
     <script src="app.js"></script>
