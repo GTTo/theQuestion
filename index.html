@@ -12,7 +12,7 @@
     </div>
 
     <div ng-controller="questionController">
-        <div class="pregunta">
+        <div ng-hide="pollEnded" class="pregunta">
             <h1>Pregunta {{questions[questionNumber].id}}</h1>
             <h3>{{questions[questionNumber].pregunta}}</h3>
             <ul>
@@ -27,8 +27,11 @@
             <h2>Respuestas</h2>
             <div ng-repeat="ans in answers">Q:{{ans.id}} A:{{ans.responseId}}</div>
         </div>
-        <div>
+        <div ng-hide="pollEnded">
             {{notification}}
+        </div>
+        <div ng-show="pollEnded">
+            La encuesta ha finalizado!
         </div>
     </div>
 

@@ -8,6 +8,7 @@
         $scope.answer = answer;
         $scope.questionNumber = 0;
         $scope.notification = '';
+        $scope.pollEnded = false;
 
         $scope.answers = [];
         $scope.questions = questionService.getData();
@@ -35,6 +36,7 @@
             if ($scope.questionNumber < $scope.questions.length - 1) {
                 $scope.questionNumber++;
             } else {
+                $scope.pollEnded = true;
                 $scope.notification = 'At last question...';
             }
         }
