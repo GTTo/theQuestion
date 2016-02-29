@@ -1,0 +1,28 @@
+{
+  "name": "the-question",
+  "version": "1.0.0",
+  "description": "* Cada pregunta tiene varias opciones\r  * El usuario marca su respuesta\r  * Se guardan las respuestas del usuario para ser procesadas al final\r  * Al terminar las preguntas se muestran todas las respuestas al usuario",
+  "main": "app.js",
+  "scripts": {
+    "pretest": "npm install",
+    "test": "node node_modules/karma/bin/karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GTTo/theQuestion.git"
+  },
+  "author": "César Beviá",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GTTo/theQuestion/issues"
+  },
+  "homepage": "https://github.com/GTTo/theQuestion#readme",
+  "dependencies": {
+    "karma": "^0.13.21",
+    "karma-jasmine": "^0.3.7"
+  },
+  "devDependencies": {
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-firefox-launcher": "^0.1.7"
+  }
+}
