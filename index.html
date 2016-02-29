@@ -12,20 +12,23 @@
     </div>
 
     <div ng-controller="questionController">
-        <div class="pregunta" ng-repeat="q in questions">
-            <h1>Pregunta {{q.id}}</h1>
-            <h3>{{q.pregunta}}</h3>
+        <div class="pregunta">
+            <h1>Pregunta {{questions[questionNumber].id}}</h1>
+            <h3>{{questions[questionNumber].pregunta}}</h3>
             <ul>
-                <li ng-repeat="respuesta in q.respuestas" ng-click="check(q)">
+                <li ng-repeat="respuesta in questions[questionNumber].respuestas" ng-click="check(questions[questionNumber])">
                     <input type="checkbox" checked ng-if="respuesta.active"> {{respuesta.text}}
                 </li>
             </ul>
-            <button ng-click="answer(q)">Responder</button>
+            <button ng-click="answer(questions[questionNumber])">Responder</button>
         </div>
 
         <div ng-show="answers.length !== 0">
             <h2>Respuestas</h2>
             <div ng-repeat="ans in answers">Q:{{ans.id}} A:{{ans.responseId}}</div>
+        </div>
+        <div>
+            {{notification}}
         </div>
     </div>
 
