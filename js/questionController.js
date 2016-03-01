@@ -22,12 +22,13 @@
 
         function answer(question) {
             var hasResponse = false;
-            angular.forEach(question.respuestas, function (value, key) {
-                if (value.active) {
-                    $scope.answers.push({ id: question.id, responseId: value.id });
-                    hasResponse = true;
-                }
+            $scope.answers = question.respuestas.filter(function(respuesta) {
+                return respuesta.active;
+            }).map(function(respuesta) {
+                hasResponse = true;
+                return { id: question.id, responseId: respuesta.id }
             });
+
             if (!hasResponse) {
                 $scope.notification = 'You have to answer the question!';
                 return;
